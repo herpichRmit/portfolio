@@ -1,16 +1,51 @@
 import Image from 'next/image'
 import Link from 'next/link';
-import mockupURL from '../public/mockphone-zekiwellness.png';
 
 export default function Project({ project }) {
 
     const acheivementItems = project.acheivements.map(item =>  <li>{item}</li>);  
     const techStackItems = project.techStack.map(item =>  <p>{item}</p>);
     const toolsItems = project.tools.map(item =>  <p>{item}</p>);  
+    const textSize = () => {
+        if (project.mockType == "phone") {
+            return "max-w-lg"
+        } else if (project.mockType == "computer") {
+            return "max-w-md"
+        }
+    }
+    const mockupImage = () => {
+        if (project.mockType == "phone") {
+            return (
+                <div className="relative w-40 h-80 rotate-1">
+                    <Image
+                        src={ project.mockupURL }
+                        alt="Mockup of project"
+                        fill
+                        className="object-contain transition-transform duration-500 ease-out hover-enlarged"
+                    /> 
+                </div>
+            );
+        } else if (project.mockType == "computer") {
+            return (
+                <div className="relative w-60 h-60">
+                    <Image
+                        src={ project.mockupURL }
+                        alt="Mockup of project"
+                        fill
+                        className="object-contain transition-transform duration-500 ease-out hover-enlarged"
+                    />
+                </div>
+            );
+        } else {
+            return (
+                <div className="relative w-80 h-60 "></div>
+            );
+        }
+    }
 
     return (
-        <div className="min-w-full flex items-center justify-between pl-32">
-            <div className="min-w-min max-w-xl">
+        <div className="max-w-3xl flex items-start justify-between pl-8 ">
+            <div className={"min-w-min " + textSize()}>
                 <p className="font-bold text-xl">
                     { project.title }
                 </p>
@@ -23,7 +58,7 @@ export default function Project({ project }) {
                     Some of my key achievements include:
                 </p>
                 <ul className="list-disc list-inside">{acheivementItems}</ul>
-                <div className="h-10" />
+                <div className="h-8" />
                 <div className="flex space-x-3 items-center">
                     <Image
                         src="/techstack-icon.png" 
@@ -33,7 +68,7 @@ export default function Project({ project }) {
                     />
                     { techStackItems }
                 </div>
-                <div className="h-4" />
+                <div className="h-2" />
                 <div className="flex space-x-3 items-center">
                     <Image
                         src="/tools-icon.png" 
@@ -43,27 +78,25 @@ export default function Project({ project }) {
                     />
                     { toolsItems }
                 </div>
-                <div className="h-4" />
-                <div className="flex space-x-3 items-center">
-                    <Image
-                        src="/github-icon.png" 
-                        width={16}
-                        height={16}
-                        alt="Github Logo"
-                    />
-                    <Link href={ project.githubURL }>
-                        <p className="tracking-tight" >See Github</p>
-                    </Link>
-                </div>
+                <div className="h-2" />
+                { project.githubURL != "#" ?
+                    <div className="flex space-x-3 items-center">
+                        <Image
+                            src="/github-icon.png" 
+                            width={16}
+                            height={16}
+                            alt="Github Logo"
+                        />
+                        <Link href={ project.githubURL }>
+                            <p className="tracking-tight" >See Github</p>
+                        </Link>
+                    </div>
+                :
+                    <div />
+                }
+                
             </div>
-            <div className="w-20 h-20 relative">
-                <Image
-                    src={ project.mockupURL }
-                    alt="Mockup of project"
-                    fill
-                    className="min-w-min object-contain"
-                />
-            </div>
+            { mockupImage() }
 
         </div>
     );

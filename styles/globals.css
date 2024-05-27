@@ -44,6 +44,24 @@ body {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
-.parallax {
-  position: fixed;
+.box {
+  transition: transform 0.3s ease;
 }
+
+.enlarged {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+
+.hover-enlarged:hover {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display : none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style : none;
+  scrollbar-width : none;
+}
+      

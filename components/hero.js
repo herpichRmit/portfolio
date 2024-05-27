@@ -2,47 +2,30 @@ import { Parallax } from "react-scroll-parallax";
 
 export default function Hero() {
     return (
-        <div className="min-w-full flex">
-            <div>
-                <Parallax speed={0}>
-                    <h2 className="text-8xl pb-7 font-bold tracking-tighter bg-gradient-to-t from-gray-300 to-gray-200 inline-block bg-clip-text text-transparent w-max">
-                    Problem solver
-                    </h2>
+        <div className="min-w-full flex flex-col min-h-screen">
+            <div className="flex-1"/>
+            <div className="flex-1 flex flex-row justify-between items-center">
+                <Parallax speed={ 10 } className="relative top-3">
+                    <p className="bg-blue-700 w-32 h-32 rounded-full shadow-md transition-transform duration-500 ease-out hover-enlarged"></p> 
                 </Parallax>
-                <Parallax speed={4}>
-                    <h2 className="text-8xl pb-2 font-bold tracking-tighter bg-gradient-to-t from-gray-300 to-gray-200 inline-block bg-clip-text text-transparent w-max">
-                    Technologist
-                    </h2>
+                <Parallax speed={ 15 } className="relative top-5">
+                <p className="bg-green-700 w-32 h-32 rounded-full shadow-md transition-transform duration-500 ease-out hover-enlarged"></p> 
                 </Parallax>
-                <Parallax speed={8}>
-                    <h2 className="text-8xl font-bold tracking-tighter bg-gradient-to-t from-gray-300 to-gray-200 inline-block bg-clip-text text-transparent w-max">
-                    Designer
-                    </h2>
+                <Parallax speed={ 10 } className="relative top-4">
+                <p className="bg-red-700 w-32 h-32 rounded-full shadow-md transition-transform duration-500 ease-out hover-enlarged"></p> 
                 </Parallax>
-                <Parallax speed={12}>
-                    <h2 className="text-8xl font-bold tracking-tighter bg-gradient-to-t from-gray-300 to-gray-200 inline-block bg-clip-text text-transparent w-max">
-                    Software engineer
-                    </h2>
+                <Parallax speed={ 20 } className="relative top-7">
+                <p className="bg-pink-700 w-32 h-32 rounded-full shadow-md transition-transform duration-500 ease-out hover-enlarged"></p> 
                 </Parallax>
-                <h1 className="font-sans text-8xl font-bold tracking-tight leading-normal">
-                Hi, I'm Ethan
-                </h1>
-                <p>
-                And I enjoy many things.
-                </p>
-                <div className="h-44"/>
             </div>
-            <div className="self-center pl-20">
-                <p>animation</p>
-            </div>
+            <h1 className="font-sans text-8xl font-bold tracking-tight leading-normal">
+            Hi, I'm Ethan
+            </h1>
+            <p>
+            Aspiring technologist and creative.
+            </p>
+            <div className="h-44"/>
         </div>
     );
   }
   
-/*
-<h2
-                className="text-8xl font-bold tracking-tighter bg-gradient-to-t from-gray-300 to-gray-200 inline-block bg-clip-text text-transparent"
-                >
-                Problem solver <br /> Technologist <br /> Designer <br /> Software engineer
-                </h2>
-                */
