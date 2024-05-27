@@ -71,26 +71,29 @@ export default function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between pl-72 pr-72 font-sans">
+            <div className="flex-1"></div>
+            <div className='flex flex-col items-center justify-between'>
             <Hero />
-
             <ProgressBar />
             <div className="flex min-w-full">
                 <Sidebar />
-                <div className="min-w-full">
+                <div className="items-center">
                     <div className="h-12" />
                     <SectionLabel text="About" color="bg-blue-500" leftOffset={true} />
                     <Intro />
                     <div className="h-40" />
                     <SectionLabel text="Projects" color="bg-green-500" leftOffset={true} />
                     {projectsItems}
-                    <div className="h-22" />
+                    </div>
+                    <div className="flex-1" />
+                </div>
+                <div className="min-w-full">
+                    <SectionLabel text="Contact" color="bg-indigo-500" rightOffset={true} />
+                    <Contact />
+                    <div className="h-44" />
                 </div>
             </div>
-            <div className="min-w-full">
-                <SectionLabel text="Contact" color="bg-indigo-500" rightOffset={true} />
-                <Contact />
-                <div className="h-44" />
-            </div>
+            <div className="flex-1"></div>
         </main>
     );
 }
